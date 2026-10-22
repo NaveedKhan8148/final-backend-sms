@@ -34,6 +34,15 @@ import academicSessionRouter from "./routes/academicSession.routes.js"
 import payrollRouter from "./routes/payroll.routes.js"
 import expenseRouter from "./routes/expense.routes.js"
 
+// ── Root / Health check route ────────────────────────────────────────────────
+app.get("/", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "SMS Backend API is running successfully!",
+        version: "1.0.0"
+    });
+});
+
 // ── Existing route declarations ───────────────────────────────────────────────
 app.use("/api/v1/users", userRouter)
 app.use("/api/v1/organizations", organizationRouter)
